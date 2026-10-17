@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skyline Weather Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<aside id="nav" aria-label="Sections">
+<div class="brand">☁ Skyline</div>
+<a href="#overview" class="on">🏠 Overview</a><a href="#hourly">🕒 Hourly</a><a href="#daily">📅 7-day</a>
+<a href="#temp">🌡 Temperature</a><a href="#precip">🌧 Precipitation</a><a href="#uvair">☀ UV &amp; air</a><a href="#wind">🧭 Wind</a>
+</aside>
+<main>
+<div class="top">
+<form id="f" autocomplete="off"><input id="q" placeholder="Search a city…" aria-label="Search city"><button class="p">Search</button><div class="sug" id="sug" hidden></div></form>
+<button id="geo">Use my location</button>
+<span><button id="uC" class="on">°C</button> <button id="uF">°F</button></span>
+</div>
+<div id="alerts" role="alert"></div>
+
+<section id="overview"><h2 id="place">Current weather</h2><div class="hero" id="hero"><div class="skel"></div><div class="skel"></div></div></section>
+<section id="hourly"><h2>Next 24 hours</h2><div class="strip" id="strip"></div></section>
+<section id="daily"><h2>7-day forecast</h2><div class="days" id="days"></div></section>
+<section id="temp"><h2>Temperature</h2><div class="card"><div class="tabs"><button data-m="h" class="on">24 hours</button><button data-m="d">7 days</button></div><div class="cv" id="cvT"><canvas id="cT"></canvas></div></div></section>
+<section id="precip"><h2>Precipitation probability</h2><div class="grid2"><div class="card"><small>Next 24 hours</small><div class="cv" id="cvP"><canvas id="cP"></canvas></div></div><div class="card"><small>Next 7 days (chance and total)</small><div class="cv" id="cvP2"><canvas id="cP2"></canvas></div></div></div></section>
+<section id="uvair"><h2>UV index &amp; air quality</h2><div class="grid2"><div class="card" id="uvBox"></div><div class="card" id="aqBox"></div></div></section>
+<section id="wind"><h2>Wind</h2><div class="card comp" id="windBox"></div></section>
+<p class="sm" style="color:var(--mute)">Data: Open-Meteo forecast, air-quality and geocoding APIs (free, no key). Charts: Chart.js.</p>
+</main></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
